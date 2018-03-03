@@ -53,12 +53,13 @@ public class MakeChangeApp {
 			System.out.println("Thank you, have a good day.");
 		}
 		else if (price > custAmount) {
-			System.err.println("The amount provided is less than the item price.");
+			System.err.println("The amount provided is less than the item price. ");
 			System.out.println("You still owe "+ -(custAmount - price));
 			// System.err.println("Please provide a new amount.");
 		}
 		else {
-			change = ((custAmount - price) * 100);
+			change = Math.round(((custAmount - price) * 100));
+			System.out.println("Thank you. Your change is: ");
 			calcRemainder();
 		}
 	}
@@ -71,12 +72,19 @@ public class MakeChangeApp {
 		int[] values = {2000, 1000, 500, 100, 25, 10, 5, 1};
 		
 		for (int i = 0; i < values.length; i++) {
-			int numberChange = (int)(change/values[i]);
-			if ((values[i] >= 1) && (numberChange > 1)) {
-				System.out.println( numberChange + " " + bill[i] + "s");
+			int numberChange = Math.round((int)(change/values[i]));
+			if ((values[i] >= 1) && (numberChange != 1)) {
+				if (values[i] != 1) {
+					System.out.println( numberChange + " " + bill[i] + "s");					
+				}
+				else {
+					System.out.println(numberChange + " Pennies");
+				}
+				change = change - (numberChange * values[i]);
 			}
-			else if ((values[i] >= 1 ) && (numberChange <= 1)) {
+			else if ((values[i] >= 1 ) && (numberChange == 1)) {
 				System.out.println( numberChange + " " + bill[i]);
+				change = change - (numberChange * values[i]);
 			}
 //			else if ((values[i] < 1) && (numberChange > 1)) {
 //				System.out.println( numberChange + " " + coin[i]);
