@@ -90,13 +90,13 @@ public class MakeChangeApp {
 				else {
 					System.out.println(numberChange + " Pennies");
 				}
-				// recalc change so it only loops through remainder
+				// recalc change so it only loops through change remainder
 				change = change - (numberChange * values[i]);
 			}
 			// if bills are singular, do not print "s"
 			else if ((values[i] >= 1) && (numberChange == 1)) {
 				System.out.println(numberChange + " " + bill[i]);
-				// recalc change so it only loops through remainder
+				// recalc change so it only loops through change remainder
 				change = change - (numberChange * values[i]);
 			}
 		}
