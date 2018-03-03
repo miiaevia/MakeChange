@@ -18,9 +18,7 @@ package com.skilldistillery.projects.makechange;
 import java.util.Scanner;
 
 public class MakeChangeApp {
-	static double price, custAmount, change, coinsQuar, coinsDimes, coinsNickels;
-	static double coinsPennies;
-	static int bills20, bills10, bills5, bills1;
+	static double price, custAmount, change;
 	static Scanner kb = new Scanner(System.in);
 
 	public static void main(String[] args) {
